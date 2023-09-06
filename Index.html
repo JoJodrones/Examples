@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Homepage</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	  
+    body, html {
+      height: 100%;
+      overflow-y: scroll; 
+      margin: 0;
+      padding: 0;
+      color: white; 
+      font-family: Arial, sans-serif; 
+    }
+
+  
+    .interactive-section img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .download-link {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <video id="video-background" autoplay loop muted>
+    <source src="untitled/AdobeStock_447285837.mov" type="video/quicktime">
+    <source src="untitled/Waves.mp4" type="video/mp4">
+  </video>
+
+  <header>
+    <h1>Experiences Site</h1>
+    <nav>
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="page2.html">Training</a></li>
+        <li><a href="page3.html">Business</a></li>
+        <li><a href="Page4.html">Media</a></li>
+        <li><a href="page5.html">Pictures</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="interactive-section">
+      <video id="main-video" controls>
+        <source src="untitled/my first commercial.mp4" type="video/mp4">
+        
+      </video>
+      <p>This website is a quick compilation of the things that I learned to do with proficiency while at the University of North Texas. I have prepared a few selections. Please Enjoy! </p>
+    <img src="untitled/2022-04-20.png" alt="My picture" width="200" height="200">
+      <div class="download-link">
+        <a href="untitled/my first commercial.mp4" download>Download the video</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videoElement = document.getElementById("main-video");
+      if (videoElement) {
+        document.addEventListener("scroll", function() {
+          const section = document.querySelector(".interactive-section");
+          const rect = section.getBoundingClientRect();
+          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+            if (videoElement.paused) {
+              videoElement.play();
+            }
+          } else {
+            videoElement.pause();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
